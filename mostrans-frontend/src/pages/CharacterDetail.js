@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import { db } from "../FirebaseConfig";
 import { doc, updateDoc, setDoc, getDoc } from "firebase/firestore";
 
@@ -10,6 +10,8 @@ function CharacterDetail() {
 	const [locations, setLocations] = useState([]);
 	const [selectedLocation, setSelectedLocation] = useState("");
 	const [isLoading, setIsLoading] = useState(true);
+
+	const navigate = useNavigate();
 
 	useEffect(() => {
 		const fetchData = async () => {
@@ -45,6 +47,10 @@ function CharacterDetail() {
 
 		fetchData();
 	}, [id]);
+
+	const handleGoBack = () => {
+		navigate(-1);
+	};
 
 	const handleLocationChange = (event) => {
 		setSelectedLocation(event.target.value);
@@ -94,10 +100,19 @@ function CharacterDetail() {
 	}
 
 	return (
-		<div className="container">
+		<div className="mt-4 container">
+			<div className="row ml-1 mb-2">
+				<button
+					className="btn justify-content-center mt-2 border-primary mb-4"
+					onClick={handleGoBack}
+				>
+					&lt;
+				</button>
+				<h1 className="ml-4">{character.name}</h1>
+			</div>
 			<div className="row">
-				<div className="col-md-6">
-					<div className="text-center mb-3">
+				<div className="col">
+					<div className="mb-3">
 						<img
 							src={character.image}
 							className="card-img-top"
@@ -108,7 +123,6 @@ function CharacterDetail() {
 				</div>
 				<div className="col-md-6">
 					<div className="card-body">
-						<h1 className="mb-4">{character.name}</h1>
 						<p className="card-text">
 							<strong>Status:</strong> {character.status}
 						</p>
@@ -144,7 +158,7 @@ function CharacterDetail() {
 							className="btn btn-primary"
 							onClick={handleSubmit}
 						>
-							Submit
+							Assign Location
 						</button>
 					</div>
 				</div>

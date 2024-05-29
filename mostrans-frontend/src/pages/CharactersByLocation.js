@@ -66,7 +66,7 @@ function CharactersByLocation() {
 		if (savedLocationId) {
 			handleLocationClick(savedLocationId);
 		}
-	}, []);
+	});
 
 	const handleLocationClick = async (locationId) => {
 		try {
@@ -109,11 +109,11 @@ function CharactersByLocation() {
 
 	return (
 		<div className="container">
-			<h1>Characters By Location</h1>
+			<h1 className="mt-4">Characters By Location</h1>
 			<div className="row">
-				<div className="col-md-4">
-					<h2>Locations</h2>
-					<ul className="list-group">
+				<div className="col-md-4 mt-4">
+					<h3 className="text-primary">Locations</h3>
+					<ul className="list-group mt-4">
 						{locations.map((location) => (
 							<li
 								key={location.id}
@@ -126,14 +126,14 @@ function CharactersByLocation() {
 						))}
 					</ul>
 				</div>
-				<div className="col-md-8">
-					<h2>
+				<div className="col-md-8 mt-4">
+					<h3 className="text-primary">
 						Characters in{" "}
 						{selectedLocation
 							? selectedLocation.name
 							: "Selected Location"}
-					</h2>
-					<ul className="list-group">
+					</h3>
+					<ul className="list-group mt-4">
 						{characters.map((character) => {
 							return (
 								<li

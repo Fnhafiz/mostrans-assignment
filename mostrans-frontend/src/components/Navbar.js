@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 function Navbar() {
 	return (
-		<nav className="navbar navbar-expand-lg navbar-light bg-light">
+		<nav className="navbar navbar-expand-lg navbar-dark bg-primary">
 			<Link className="navbar-brand" to="/">
 				Rick&Morty
 			</Link>
@@ -27,7 +27,7 @@ function Navbar() {
 						</Link>
 					</li>
 					<li className="nav-item">
-						<Link className="nav-link" to="/location/some-location">
+						<Link className="nav-link" to="/location">
 							Characters By Location
 						</Link>
 					</li>

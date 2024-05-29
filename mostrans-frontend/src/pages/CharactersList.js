@@ -37,14 +37,14 @@ function CharactersList() {
 
 	return (
 		<div>
-			<h1 className="mb-4">Characters List</h1>
+			<h1 className="mt-4 mb-4">Characters List</h1>
 			<div className="row">
 				{characters.map((character) => (
 					<div
 						key={character.id}
 						className="col-6 col-sm-4 col-md-3 mb-4"
 					>
-						<div className="card">
+						<div className="card border-primary">
 							<img
 								src={character.image}
 								className="card-img-top"
@@ -65,14 +65,14 @@ function CharactersList() {
 			</div>
 			<div className="d-flex justify-content-center mt-4 mb-5">
 				<button
-					className="btn btn-secondary mr-2"
+					className="btn btn-primary mr-2"
 					onClick={handlePrevPage}
 					disabled={!info.prev}
 				>
 					Previous
 				</button>
 				<button
-					className="btn btn-secondary ml-2"
+					className="btn btn-primary ml-2"
 					onClick={handleNextPage}
 					disabled={!info.next}
 				>

@@ -17,7 +17,7 @@ function App() {
 						element={<CharacterDetail />}
 					/>
 					<Route
-						path="/location/:location"
+						path="/location"
 						element={<CharactersByLocation />}
 					/>
 				</Routes>
